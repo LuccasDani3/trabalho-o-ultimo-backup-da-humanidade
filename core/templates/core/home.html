@@ -6,7 +6,7 @@
 <div class="container mx-auto mt-20 text-center relative z-10">
     <h1 class="text-5xl text-cyan-400 mb-8 glitch neon-text" data-text="CONHEÇA_NOSSO_CRIADOR">CONHEÇA_NOSSO_CRIADOR</h1>
     <div class="max-w-2xl mx-auto bg-black/50 rounded-xl neon-border backdrop-blur-sm">
-        <div class="aspect-video bg-gradient-to-r from-cyan-900 to-purple-900 rounded-lg flex items-center justify-center relative overflow-hidden">
+        <div class="aspect-video bg-gradient-to-r from-cyan-900 to-orange-900 rounded-lg flex items-center justify-center relative overflow-hidden">
             <iframe 
                 class="absolute inset-0 w-full h-full rounded-lg" 
                 src="https://www.youtube.com/embed/GtlWzMPR464" 
@@ -21,35 +21,35 @@
 
 
 <div class="container mx-auto mt-20 relative z-10">
-    <div class="text-center mb-8">
-        <h1 class="text-4xl text-cyan-400 neon-text mb-8 text-center glitch" data-text="ÚLTIMOS_TÓPICOS">ÚLTIMOS_TÓPICOS</h1>
-        <p class="text-cyan-200 text-center mb-12">Explore um pouco da nossa história</p>
+    <div class="text-center mb-10">
+        <h1 class="text-4xl text-cyan-400 neon-text mb-2 text-center glitch" data-text="ÚLTIMOS_TÓPICOS">ÚLTIMOS_TÓPICOS</h1>
+        <p class="text-cyan-200 text-center">Explore um pouco da nossa história</p>
     </div>
 
-    <div class="flex flex-col lg:flex-row gap-8 mx-4">
-        <!-- Card maior -->
+    <!-- Card maior -->
+    {% if fixed_acervo %}
+        {% include "core/fixed_acervo.html" %}
+    {% endif %}
 
-            {% if fixed_acervo %}
-                {% include "core/fixed_acervo.html" %}
-            {% endif %}
-
+    <!-- Grid 2x2 para os cards menores -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-4">
         {% if acervos %}
             {% for acervo in acervos %}
-            
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-12">
-                <div class="bg-black/50 rounded-xl p-4 transform hover:scale-[1.02] transition-all duration-300 border-white-400 backdrop-blur-sm">
-                    <div class="flex items-center gap-4">
-                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                            <img src="{{ acervo.image.url }}" alt="Card" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-cyan-400 neon-text">{{ acervo.title }}</h3>
-                            <h3 class="text-lg font-bold text-cyan-400 neon-text">{{ acervo.category }}></h3>
-                        </div>
+            <div class="bg-black/50 rounded-xl p-6 transform hover:scale-[1.05] transition-all duration-300 neon-border backdrop-blur-sm h-64">
+                <div class="flex items-center gap-6">
+                    <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                        <img src="{{ acervo.image.url }}" alt="Card" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <h1 class="text-2xl font-bold text-cyan-400 glitch neon-text"> {{ acervo.title }}</h1>
+                        <span class="inline-flex items-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-blue-400 ring-1 ring-blue-400/10 ring-inset">{{ acervo.category }}</span>
                     </div>
                 </div>
+                <h3 class="text-cyan-200 text-lg mt-2 text-ellipsis overflow-hidden">{{ acervo.description }}</h3>
             </div>
             {% endfor %}
+        {% else %}
+            <p class="text-cyan-200 text-center col-span-2">Nenhum tópico disponível.</p>
         {% endif %}
     </div>
 </div>

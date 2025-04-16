@@ -9,7 +9,7 @@ class AcervoListView(ListView):
 
     def get_queryset(self):
         # Retorna os últimos 4 acervos criados
-        return Acervo.objects.order_by('-created_at')[:4]
+        return Acervo.objects.filter(fixed=False).order_by('-created_at')[:4]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
