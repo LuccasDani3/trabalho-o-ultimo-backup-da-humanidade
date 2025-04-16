@@ -1,0 +1,22 @@
+<div class="lg:w-1/3 flex-shrink-0">
+    <div class="flex flex-col items-start justify-start bg-black/50">
+        <div class="bg-black/50 rounded-xl p-4 transform hover:scale-[1.02] transition-all duration-300 neon-border backdrop-blur-sm">
+            <div class="relative mb-3 overflow-hidden rounded-lg">
+                <img src="{{ fixed_acervo.image.url }}" alt="Card" class="w-full rounded-lg">
+                <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/50 to-transparent opacity-50"></div>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-2">
+                    <h3 class="text-lg font-bold text-cyan-400 neon-text">{{ fixed_acervo.title }}</h3>
+                    <span class="inline-flex items-center rounded-md bg-transparent px-2 py-1 text-xs font-medium text-blue-400 ring-1 ring-blue-400/10 ring-inset">{{ fixed_acervo.category }}</span>
+                </div>
+                <span class="inline-flex neon-border items-center rounded-md bg-transparent px-2 py-1 text-xs font-medium text-cyan-400 ring-1 ring-cyan-400/10 ring-inset">
+                    <i class="fa-solid fa-thumbtack mr-2"></i>
+                    FIXADO
+                </span>
+            </div>
+            <p class="text-cyan-200 font-bold mb-2 text-sm">Data estimada: {{ fixed_acervo.estimated_date | date:"d/m/Y" }}</p>
+            <p class="text-cyan-200 text-sm">{{ fixed_acervo.description }}</p>
+        </div>
+    </div>
+</div>

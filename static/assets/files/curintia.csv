@@ -1,0 +1,7 @@
+last_name,email,phone,client_type,cpf,cnpj,observations,cep,street,city,state,bairro,number,first_name
+Silva,joao.silva@example.com,11987654321,PF,123.456.789-00,,Cliente preferencial,12345-678,Rua das Flores,Montes Claros,MG,flamengo,142,Joãozinho
+Santos,maria.santos@example.com,21987654321,PF,987.654.321-00,,Novo cliente,12345-679,Avenida Brasil,Uberlândia,MG,curintia,143, maria vascaina
+LTDA,empresa.x@example.com,11987654321,PJ,,12.345.678/0001-90,Cliente corporativo,,,,MG,,,VASCO 
+Oliveira,carlos.oliveira@example.com,31987654321,PF,111.222.333-44,,Cliente MEU DEUS DO CÉU,,,,,,,Carlos
+SA,empresa.y@example.com,41987654321,PJ,,98.765.432/0001-21,Cliente VASCO DA GAMA,,,,BA,,,Empresa Y
+só,empresa.z@example.com,41987654321,PJ,,98.765.432/0001-22,Cliente dono do guaravita,,,,AC,,,trocando nome

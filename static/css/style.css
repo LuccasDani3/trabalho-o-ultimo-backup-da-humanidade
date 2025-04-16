@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Neon text effects */
+.neon-text {
+    text-shadow: 0 0 10px #0ff,
+                 0 0 20px #0ff,
+                 0 0 30px #0ff;
+}
+
+.neon-text-pink {
+    text-shadow: 0 0 10px #f0f,
+                 0 0 20px #f0f,
+                 0 0 30px #f0f;
+}
+
+/* Glowing borders */
+.neon-border {
+    position: relative;
+}
+
+.neon-border::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #0ff;
+    border-radius: inherit;
+    animation: borderGlow 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes borderGlow {
+    0%, 100% { box-shadow: 0 0 10px #0ff; }
+    50% { box-shadow: 0 0 20px #0ff, 0 0 30px #0ff; }
+}
+
+/* Cyberpunk gradients */
+.cyber-gradient {
+    background: linear-gradient(45deg, #000851, #1CB5E0);
+}
+
+.cyber-gradient-alt {
+    background: linear-gradient(45deg, #4B0082, #00FFFF);
+}
+
+/* Glitch effect */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 #00ffff;
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(44px, 9999px, 56px, 0); }
+    20% { clip: rect(12px, 9999px, 76px, 0); }
+    40% { clip: rect(89px, 9999px, 23px, 0); }
+    60% { clip: rect(67px, 9999px, 45px, 0); }
+    80% { clip: rect(34px, 9999px, 87px, 0); }
+    100% { clip: rect(56px, 9999px, 32px, 0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+}

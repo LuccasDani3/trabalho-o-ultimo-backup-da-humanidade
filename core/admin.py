@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+# registrar models no admin
+from .models import Acervo
+     
+
+admin.site.register(Acervo)

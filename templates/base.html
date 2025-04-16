@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/1981337c49.js" crossorigin="anonymous"></script>
+    
+    <title>Humanity Museum | {% block title %} {% endblock title %}</title>
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    {% block extra_head %}
+      
+    {% endblock extra_head %}
+</head>
+<body class="bg-black">
+<section class="min-h-screen p-4 relative overflow-hidden">
+    <!-- Cyberpunk grid overlay -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBmZmZmMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
+    
+    <nav class="flex justify-between items-center p-4 relative z-10">
+        <div class="flex items-center">
+            <div class="h-10 w-10 rounded flex items-center justify-center">
+                <!-- adicionar imagem -->
+                <img src="{% static 'assets/icons/edgerunners symbol.png' %}" alt="VASCO">
+
+            </div>
+            <span class="text-cyan-400 text-xl ml-2 neon-text">HUMANITY_MUSEUM</span>
+        </div>
+        <div class="space-x-6 text-cyan-400">
+            <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONHEÇA__</a>
+            <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__SOBRE__</a>
+            <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONTRIBUA__</a>
+        </div>
+    </nav>
+
+{% block content %}
+      
+{% endblock content %}
+
+
+</section>
+</body>
+</html>
