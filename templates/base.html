@@ -11,6 +11,7 @@
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/1981337c49.js" crossorigin="anonymous"></script>
     
+    <link rel="shortcut icon" type="imagex/png" href="{% static 'assets/icons/image-removebg-preview.png' %}">
     <title>Humanity Museum | {% block title %} {% endblock title %}</title>
     <link href="{% static "css/style.css" %}" rel="stylesheet">
     {% block extra_head %}
@@ -34,7 +35,7 @@
         <div class="space-x-6 text-cyan-400">
             <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONHEÇA__</a>
             <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__SOBRE__</a>
-            <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONTRIBUA__</a>
+            <a href="{% url 'create_acervo' %}" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONTRIBUA__</a>
         </div>
     </nav>
 
@@ -44,5 +45,33 @@
 
 
 </section>
+<button id="btnTopo" class="btn-topo" title="Voltar ao topo" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+function scrollFunction() {
+    const btnTopo = document.getElementById("btnTopo");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btnTopo.classList.add("visible");
+    } else {
+        btnTopo.classList.remove("visible");
+    }
+}
+
+document.getElementById("btnTopo").addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    
+    this.style.transform = "scale(0.95)";
+    setTimeout(() => {
+        this.style.transform = "scale(1)";
+    }, 200);
+});
+    {% block extra_js %}
+    {% endblock extra_js %}
+</script>
 </body>
 </html>

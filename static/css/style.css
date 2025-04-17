@@ -106,3 +106,82 @@ body {
         padding: 0 1rem;
     }
 }
+
+
+/* Formulário transparente */
+.form-transparent {
+    background-color: transparent !important;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Campos do formulário - estilo com fundo semi-transparente */
+.form-transparent .form-control {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white !important;
+}
+
+/* Labels dos campos */
+.form-transparent label {
+    color: white !important;
+}
+
+/* Placeholder dos inputs */
+.form-transparent .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Ajuste para o campo de data */
+.form-transparent input[type="date"] {
+    color-scheme: dark;
+}
+
+/* Ajuste para o campo de arquivo/imagem */
+.form-transparent .clearablefileinput {
+    color: white !important;
+}
+
+/* Botão de submit */
+.form-transparent input[type="submit"] {
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+
+.btn-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-topo.visible {
+    opacity: 0.9;
+    transform: translateY(0);
+}
+
+.btn-topo:hover {
+    opacity: 1 !important;
+    background-color: #555;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}

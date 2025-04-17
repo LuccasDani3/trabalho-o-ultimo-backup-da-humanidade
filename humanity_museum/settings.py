@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'debug_toolbar'
+    'debug_toolbar',
+    'crispy_forms',
+    'crispy_tailwind',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
+
+CRISPY_TEMPLATE_PACK = 'tailwind'

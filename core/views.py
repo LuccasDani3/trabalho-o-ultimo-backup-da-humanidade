@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
+
+from core.forms import AcervoForm
 from .models import Acervo
 
 class AcervoListView(ListView):
@@ -18,7 +20,7 @@ class AcervoListView(ListView):
         return context
     
 
-class FixedAcervoListView(ListView):
+class AcervoFixedListView(ListView):
     model = Acervo
     template_name = 'core/fixed_acervo.html'
     context_object_name = 'fixed_acervo'
@@ -26,3 +28,10 @@ class FixedAcervoListView(ListView):
     def get_queryset(self):
         # Retorna apenas os itens fixados
         return Acervo.objects.filter(fixed=True)
+    
+
+class AcervoCreateView(CreateView):
+    model = Acervo
+    form_class = AcervoForm
+    success_url = '/'
+    template_name = 'core/create_acervo.html'
