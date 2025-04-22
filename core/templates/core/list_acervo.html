@@ -69,11 +69,11 @@
                 Anterior
             </a>
         {% endif %}
-    
+        
         <span class="px-4 py-2 bg-black/50 text-cyan-200 font-bold rounded-md">
             Página {{ acervos.number }} de {{ acervos.paginator.num_pages }}
         </span>
-    
+        
         {% if acervos.has_next %}
             <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}
                       {% if request.GET.category %}category={{ request.GET.category }}&{% endif %}

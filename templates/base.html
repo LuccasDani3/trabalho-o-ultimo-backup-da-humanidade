@@ -53,25 +53,35 @@
 function scrollFunction() {
     const btnTopo = document.getElementById("btnTopo");
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btnTopo.classList.add("visible");
+        btnTopo.style.opacity = "1";
+        btnTopo.style.visibility = "visible";
     } else {
-        btnTopo.classList.remove("visible");
+        btnTopo.style.opacity = "0";
+        btnTopo.style.visibility = "hidden";
     }
 }
 
+// Evento de scroll
+window.addEventListener('load', scrollFunction);
+window.addEventListener('scroll', scrollFunction);
+
+// Evento de clique para subir
 document.getElementById("btnTopo").addEventListener("click", function() {
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
     
+    // Efeito visual opcional
     this.style.transform = "scale(0.95)";
     setTimeout(() => {
         this.style.transform = "scale(1)";
     }, 200);
 });
-    {% block extra_js %}
-    {% endblock extra_js %}
+
+
+{% block extra_js %}
+{% endblock extra_js %}
 </script>
 </body>
 </html>
