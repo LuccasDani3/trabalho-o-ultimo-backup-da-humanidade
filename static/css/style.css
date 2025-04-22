@@ -151,6 +151,54 @@ body {
     border-radius: 4px;
 }
 
+/* Estilo geral para todos os campos do formulário */
+.form-transparent input,
+.form-transparent textarea,
+.form-transparent select,
+.form-transparent input[type="file"] {
+    background-color: transparent !important; /* Fundo transparente */
+    color: #cbd5e1 !important; /* Texto cinza claro */
+    border: 1px solid #38bdf8; /* Borda ciano */
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo ao focar nos campos */
+.form-transparent input:focus,
+.form-transparent textarea:focus,
+.form-transparent select:focus,
+.form-transparent input[type="file"]:focus {
+    border-color: #0ea5e9; /* Borda azul mais clara ao focar */
+    outline: none;
+}
+
+/* Placeholder dos inputs */
+.form-transparent input::placeholder,
+.form-transparent textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important; /* Placeholder com opacidade */
+}
+
+/* Estilo específico para campos de upload */
+.form-transparent input[type="file"] {
+    cursor: pointer;
+}
+
+/* Botão de submit */
+.form-transparent input[type="submit"] {
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-transparent input[type="submit"]:hover {
+    background-color: rgba(0, 123, 255, 1);
+}
 
 .btn-topo {
     position: fixed;
@@ -184,4 +232,27 @@ body {
     opacity: 1 !important;
     background-color: #555;
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+textarea {
+    background-color: transparent;
+}
+
+.bg-transparent {
+    background-color: transparent; /* Fundo transparente */
+    color: #cbd5e1; /* Texto cinza claro */
+    border: 1px solid #38bdf8; /* Borda ciano */
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.bg-transparent:focus {
+    border-color: #0ea5e9; /* Borda azul mais clara ao focar */
+    outline: none;
+}
+
+.file-input {
+    color: #cbd5e1; /* Texto cinza claro */
 }
