@@ -11,7 +11,7 @@
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/1981337c49.js" crossorigin="anonymous"></script>
     
-    <link rel="shortcut icon" type="imagex/png" href="{% static 'assets/icons/image-removebg-preview.png' %}">
+    <link rel="shortcut icon" type="imagex/png" href="{% static 'assets/icons/tron icon.png' %}">
     <title>Humanity Museum | {% block title %} {% endblock title %}</title>
     <link href="{% static "css/style.css" %}" rel="stylesheet">
     {% block extra_head %}
@@ -27,13 +27,13 @@
         <div class="flex items-center">
             <div class="h-10 w-10 rounded flex items-center justify-center">
                 <!-- adicionar imagem -->
-                <img src="{% static 'assets/icons/edgerunners symbol.png' %}" alt="VASCO">
+                <img src="{% static 'assets/icons/tron icon.png' %}" alt="VASCO">
 
             </div>
             <a class="text-cyan-400 text-xl ml-2 neon-text" href="{% url 'home' %}">HUMANITY_MUSEUM</a>
         </div>
         <div class="space-x-6 text-cyan-400">
-            <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONHEÇA__</a>
+            <a href="{% url 'list_acervo' %}" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONHEÇA__</a>
             <a href="#" class="hover:text-cyan-300 neon-text transition-all duration-300">__SOBRE__</a>
             <a href="{% url 'create_acervo' %}" class="hover:text-cyan-300 neon-text transition-all duration-300">__CONTRIBUA__</a>
         </div>

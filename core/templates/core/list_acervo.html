@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mx-auto mt-10">
+    <div class="flex gap-8">
+        <!-- Menu de Filtros -->
+        <aside class="w-1/4 bg-black/50 rounded-xl p-6 neon-border backdrop-blur-sm">
+            <h2 class="text-xl font-bold text-cyan-400 mb-4">Filtros</h2>
+            <form method="GET" action="{% url 'list_acervo' %}">
+                <div class="mb-4">
+                    <label for="search" class="block text-cyan-200 mb-2">Pesquisar</label>
+                    <input type="text" name="search" id="search" placeholder="Pesquise pelo nome ou pela descrição"
+                           value="{{ search }}" class="w-full bg-transparent border border-cyan-400 rounded-md p-2 mb-2 text-cyan-200">
+            
+                    <label for="category" class="block text-cyan-200 mb-2">Categoria</label>
+                    <select name="category" id="category" class="w-full bg-transparent border border-cyan-400 rounded-md p-2 text-cyan-200">
+                        <option value="">Todas</option>
+                        <option value="História" {% if category == "História" %}selected{% endif %}>História</option>
+                        <option value="ARTE" {% if category == "ARTE" %}selected{% endif %}>Arte</option>
+                        <option value="SENTIMENTOS" {% if category == "SENTIMENTOS" %}selected{% endif %}>Sentimentos</option>
+                        <option value="COTIDIANO" {% if category == "COTIDIANO" %}selected{% endif %}>Cotidiano</option>
+                        <option value="MEME" {% if category == "MEME" %}selected{% endif %}>Meme</option>
+                        <option value="ENTRETENIMENTO" {% if category == "ENTRETENIMENTO" %}selected{% endif %}>Entretenimento</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="date" class="block text-cyan-200 mb-2">Data Estimada</label>
+                    <input type="date" name="date" id="date" value="{{ date }}" class="w-full bg-transparent border border-cyan-400 rounded-md p-2 text-cyan-200">
+                </div>
+                <div class="flex flex-col gap-4">
+                    <button type="submit" class="w-full bg-cyan-400 text-black font-bold py-2 rounded-md hover:bg-cyan-500 transition">Aplicar Filtros</button>
+                    {% if filters_active %}
+                        <a href="{% url 'list_acervo' %}" class="w-full text-center bg-red-700 text-white font-bold py-2 rounded-md hover:bg-red-600 transition">Remover Filtros</a>
+                    {% endif %}
+                </div>
+            </form>
+        </aside>
+
+        <!-- Lista de Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-3/4">
+            {% if acervos %}
+                {% for acervo in acervos %}
+                <div class="bg-black/50 rounded-xl p-6 transform hover:scale-[1.05] transition-all duration-300 neon-border backdrop-blur-sm h-full">
+                    <div class="flex items-center gap-6">
+                        <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src="{{ acervo.image.url }}" alt="Card" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <h1 class="text-2xl font-bold text-cyan-400 glitch neon-text"> {{ acervo.title }}</h1>
+                            <span class="inline-flex items-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-blue-400 ring-1 ring-blue-400/10 ring-inset">{{ acervo.category }}</span>
+                        </div>
+                    </div>
+                    <h3 class="text-cyan-200 text-lg mt-2 text-ellipsis overflow-hidden">{{ acervo.description }}</h3>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-cyan-200 text-center col-span-2">Nenhum tópico disponível.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-8 flex justify-center items-center gap-4">
+        {% if acervos.has_previous %}
+            <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}
+                      {% if request.GET.category %}category={{ request.GET.category }}&{% endif %}
+                      {% if request.GET.date %}date={{ request.GET.date }}&{% endif %}
+                      page={{ acervos.previous_page_number }}" 
+               class="px-4 py-2 bg-cyan-400 text-black font-bold rounded-md hover:bg-cyan-500 transition">
+                Anterior
+            </a>
+        {% endif %}
+    
+        <span class="px-4 py-2 bg-black/50 text-cyan-200 font-bold rounded-md">
+            Página {{ acervos.number }} de {{ acervos.paginator.num_pages }}
+        </span>
+    
+        {% if acervos.has_next %}
+            <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}
+                      {% if request.GET.category %}category={{ request.GET.category }}&{% endif %}
+                      {% if request.GET.date %}date={{ request.GET.date }}&{% endif %}
+                      page={{ acervos.next_page_number }}" 
+               class="px-4 py-2 bg-cyan-400 text-black font-bold rounded-md hover:bg-cyan-500 transition">
+                Próxima
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
