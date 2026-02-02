@@ -31,7 +31,7 @@ class AcervoFixedListView(View):
 class AcervoCreateView(CreateView):
     model = Acervo
     form_class = AcervoForm
-    success_url = '/list/'
+    success_url = 'list/'
     template_name = 'core/create_acervo.html'
 
 
@@ -42,9 +42,8 @@ class AcervoListView(ListView):
     paginate_by = 8
 
     def get_queryset(self):
-        queryset = Acervo.objects.all().order_by('-created_at')
+        queryset = Acervo.objects.all()
 
-        filters = {}
         search_query = self.request.GET.get('search', '')
         if search_query:
             queryset = queryset.filter(
@@ -55,13 +54,13 @@ class AcervoListView(ListView):
 
         category_filter = self.request.GET.get('category', '')
         if category_filter:
-            filters['category'] = category_filter
+            queryset = queryset.filter(category=category_filter)
 
         date_filter = self.request.GET.get('date', '')
         if date_filter:
-            filters['estimated_date'] = date_filter
+            queryset = queryset.filter(estimated_date=date_filter)
 
-        return queryset.filter(**filters)
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
